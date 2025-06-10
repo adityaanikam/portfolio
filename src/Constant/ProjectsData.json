@@ -1,0 +1,65 @@
+[
+  {
+    "category": "Machine Learning",
+    "projects": [
+      {
+        "id": 1234,
+        "name": "Los Angeles Traffic Prediction",
+        "desc": "Machine Learning based traffic prediction system",
+        "techs": ["Python", "TensorFlow", "Scikit-Learn", "Pandas", "NumPy", "Matplotlib", "Flask"],
+        "url": "https://github.com/adityaanikam/LosAngeles-Traffic-Prediction",
+        "imageSrc": "/projectThumbnails/ml/losAngeles 1.png",
+        "screenshots": [
+          "/projectThumbnails/ml/losAngeles 1.png",
+          "/projectThumbnails/ml/losAngeles 2.png",
+          "/projectThumbnails/ml/losAngeles 3.png"
+        ],
+        "features": [
+          "Real-time traffic data preprocessing",
+          "Traffic congestion level prediction using ML/DL", 
+          "Interactive data visualization",
+          "Location-based traffic updates",
+          "Flask-based deployment with REST API"
+        ],
+        "challenges": [
+          "Acquiring and cleaning real-time traffic datasets relevant to the Los Angeles region.",
+          "Designing a model that balances accuracy and performance with time-series data.",
+          "Implementing proper feature engineering to improve prediction quality.",
+          "Deploying the trained model via Flask while keeping latency minimal.",
+          "Managing CORS and API throttling during client-server interaction."
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Backend",
+    "projects": [
+      {
+        "id": 5678,
+        "name": "Real-Time Chat Application with WebSockets",
+        "desc": "WebSocket-based real-time chat application",
+        "techs": ["Java", "Spring", "WebSockets", "Socket.io", "HTML/CSS", "Docker", "SQLite"],
+        "url": "https://real-time-chat-application-with.onrender.com/",
+        "imageSrc": "/projectThumbnails/backend/chat application 1.png",
+        "screenshots": [
+          "/projectThumbnails/backend/chat application 1.png",
+          "/projectThumbnails/backend/chat application 2.png"
+        ],
+        "features": [
+          "Real-time bi-directional communication",
+          "Room-based chat support",
+          "User join/leave notifications",
+          "Message history",
+          "Typing indicators"
+        ],
+        "challenges": [
+          "Implementing WebSocket communication from scratch using Socket.io.",
+          "Ensuring messages are synced in real time across multiple users.",
+          "Managing different chat rooms and message persistence.",
+          "Handling user disconnection, reconnection, and presence status.",
+          "Deploying on a secure server and optimizing for concurrent users."
+        ]
+      }
+    ]
+  }
+]

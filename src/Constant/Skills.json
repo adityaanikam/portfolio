@@ -1,0 +1,5 @@
+{
+  "frameworks": ["React", "HTML/CSS", "JavaScript", "TensorFlow", "Pandas", "Scikit-Learn", "Matplotlib", "NumPy", "OpenCV", "PyTorch", "Keras", "Seaborn"],
+  "backend": ["Java", "Python", "Flask", "Spring Boot", "RESTful APIs", "WebSockets", "MySQL", "MongoDB", "PostgreSQL"],
+  "tools": ["Git", "GitHub", "VS Code", "Docker", "Postman", "cPanel", "Vercel", "Render"]
+}
