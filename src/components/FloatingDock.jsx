@@ -242,7 +242,7 @@ function FloatingDock({ openState, setOpenState }) {
     {
       title: "Resume",
       icon: <IconFileCvFilled className="-full w-full text-white" />,
-      href: "https://drive.google.com/file/d/1sjXR3WXybrQ-Pt2MYhNv4DO4nAV_czpn/view",
+      href: "https://drive.google.com/file/d/16FwPR74Gbb2ScdcLjPViArHELB6z9o0w/view",
     },
   ];
 
