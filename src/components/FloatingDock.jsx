@@ -6,6 +6,7 @@ import {
   IconFolderFilled,
   IconHomeFilled,
   IconUserFilled,
+  IconLetterL,
 } from "@tabler/icons-react";
 import React, { useRef, useState, useEffect } from "react";
 import {
@@ -40,7 +41,7 @@ function MobileIconContainer({ elem, setOpenState }) {
     <>
       {elem &&
       elem.title &&
-      ["X", "Linkedin", "Github", "Resume"].includes(
+      ["X", "Linkedin", "Github", "Resume", "LeetCode"].includes(
         String(elem.title).trim()
       ) ? (
         <a
@@ -104,7 +105,7 @@ function AnimatedIconContainer({ elem, mouseX, setOpenState }) {
   const isSocialMedia =
     elem &&
     elem.title &&
-    ["X", "Linkedin", "Github", "Resume"].includes(String(elem.title).trim());
+    ["X", "Linkedin", "Github", "Resume", "LeetCode"].includes(String(elem.title).trim());
 
   return (
     <>
@@ -235,14 +236,19 @@ function FloatingDock({ openState, setOpenState }) {
       href: "https://www.linkedin.com/in/aditya-nikam-a23868250",
     },
     {
-      title: "Github",
-      icon: <IconBrandGithubFilled className="h-full w-full text-white" />,
-      href: "https://github.com/adityaanikam",
-    },
-    {
       title: "Resume",
       icon: <IconFileCvFilled className="-full w-full text-white" />,
       href: "https://drive.google.com/file/d/1HoqNWGsQac6QJ5K7ea9G1yOW_8Q9UM_N/view",
+    },
+    {
+      title: "LeetCode",
+      icon: <IconLetterL className="h-full w-full text-white" />,
+      href: "https://leetcode.com/u/adityanikam/",
+    },
+    {
+      title: "Github",
+      icon: <IconBrandGithubFilled className="h-full w-full text-white" />,
+      href: "https://github.com/adityaanikam",
     },
   ];
 
