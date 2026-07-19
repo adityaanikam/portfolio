@@ -1,0 +1,11 @@
+{
+  "languages": ["Java", "Python", "Kotlin", "Scala", "HTML/CSS", "SQL", "JavaScript"],
+  "frameworks": ["React", "Spring", "TensorFlow", "Pandas", "Scikit-Learn"],
+  "libraries": ["Matplotlib", "NumPy", "OpenCV", "PyTorch", "Keras", "Seaborn"],
+  "backend": ["Flask", "FastAPI", "RESTful APIs", "WebSockets", "Electron.js"],
+  "databases": ["MySQL", "MongoDB", "PostgreSQL", "Redis", "InfluxDB"],
+  "bigdata": ["Apache Kafka", "Apache Spark", "Redis Pub/Sub"],
+  "tools": ["Git", "GitHub", "GitLab", "Docker", "VS Code"],
+  "deployment": ["Vercel", "Render", "AWS EC2", "AWS Lambda", "Kubernetes"],
+  "other": ["Postman", "cURL", "cPanel", "Grafana", "LeetCode", "CI/CD"]
+}
