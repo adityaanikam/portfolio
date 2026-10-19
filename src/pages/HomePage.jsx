@@ -6,6 +6,34 @@ import { IconX } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import projectsData from "../Constant/ProjectsData.json";
 
+const openSourceHighlights = [
+  {
+    repo: "eclipse-vertx/vertx-sql-client",
+    href: "https://github.com/eclipse-vertx/vertx-sql-client/pull/1692",
+    summary: "fixed a PostgreSQL array bind parameter with a null element that hung the query.",
+  },
+  {
+    repo: "keycloak/keycloak",
+    href: "https://github.com/keycloak/keycloak/pull/51840",
+    summary: "password policies are now evaluated in the configured order.",
+  },
+  {
+    repo: "DependencyTrack/dependency-track",
+    href: "https://github.com/DependencyTrack/dependency-track/pull/7262",
+    summary: "resolved the project parent first in updateProject to stop a database constraint violation.",
+  },
+  {
+    repo: "ClickHouse/clickhouse-kafka-connect",
+    href: "https://github.com/ClickHouse/clickhouse-kafka-connect/pull/835",
+    summary: "stopped the buffered sink duplicating records after a retriable insert failure.",
+  },
+  {
+    repo: "alibaba/fastjson2",
+    href: "https://github.com/alibaba/fastjson2/pull/7836",
+    summary: "fixed an ArrayIndexOutOfBoundsException in field-name decoding.",
+  },
+];
+
 const HomePage = () => {
   const [openState, setOpenState] = useState("");
   const [selectedCard, setSelectedCard] = useState(null);
@@ -90,31 +118,48 @@ const HomePage = () => {
               <div className="bg-zinc-900/90 rounded-2xl p-10 max-w-xl w-full mx-4 shadow-2xl text-white max-h-[85vh] overflow-y-auto">
                 <h2 className="text-3xl font-bold mb-4">Experience</h2>
                 <div className="mb-2">
-                  <span className="font-semibold">Backend Developer Intern</span> <br/>
-                  <span>Smartcard Ai</span> <br/>
-                  <span className="text-zinc-400">February 2025 - April 2025</span>
-                </div>
-                <ul className="list-disc ml-6 space-y-2 mt-2 text-zinc-200">
-                  <li>Developed and integrated LLM-based APIs using Flask and Python to enable AI-powered functionalities.</li>
-                  <li>Optimized Electron.js frontend performance and streamlined API integration for smoother user interactions.</li>
-                  <li>Conducted API testing and debugging using Postman, ensuring reliability and performance.</li>
-                  <li>Processed structured/unstructured datasets for LLM queries to enhance model accuracy and response quality.</li>
-                  <li>Collaborated with frontend developers to ensure seamless backend integration and feature delivery.</li>
-                </ul>
-
-                <div className="border-t border-zinc-700 my-6"></div>
-
-                <div className="mb-2">
                   <span className="font-semibold">AWS Intern</span> <br/>
                   <span>Cognizant</span> <br/>
                   <span className="text-zinc-400">March 2026 - June 2026 | Kochi, Kerala, India</span>
                 </div>
                 <ul className="list-disc ml-6 space-y-2 mt-2 text-zinc-200">
-                  <li>Worked with Python, SQL, and PySpark for data processing and transformation.</li>
-                  <li>Gained practical experience with Amazon Redshift and DynamoDB for cloud-based data workflows.</li>
-                  <li>Completed 10+ hands-on AWS exercises covering EC2, S3, IAM, networking, and security.</li>
-                  <li>Learned ETL and data engineering concepts in an AWS environment.</li>
-                  <li>Gained exposure to SDLC, Agile/Scrum, Git, and GitHub Copilot.</li>
+                  <li>Built an AWS ETL pipeline using Amazon Redshift and DynamoDB, reducing data processing time by 30%.</li>
+                  <li>Processed and validated 50K+ records using Python, SQL, and PySpark.</li>
+                  <li>Completed 10+ AWS labs covering EC2, S3, IAM, networking, and cloud security.</li>
+                  <li>Applied Git, GitHub Copilot, SDLC, and Agile practices, improving development efficiency by 20%.</li>
+                </ul>
+
+                <div className="border-t border-zinc-700 my-6"></div>
+
+                <div className="mb-2">
+                  <span className="font-semibold">Backend Developer Intern</span> <br/>
+                  <span>Smartcard Ai</span> <br/>
+                  <span className="text-zinc-400">February 2025 - April 2025 | Remote</span>
+                </div>
+                <ul className="list-disc ml-6 space-y-2 mt-2 text-zinc-200">
+                  <li>Integrated OpenAI and Gemini LLM APIs into production backend services with prompt-driven workflows.</li>
+                  <li>Engineered REST APIs using Python and Flask, improving application response time by 25%.</li>
+                  <li>Designed reusable JSON response models, reducing backend integration effort by 35%.</li>
+                  <li>Debugged and validated API and LLM outputs using Postman, reducing debugging effort by 40%.</li>
+                </ul>
+
+                <div className="border-t border-zinc-700 my-6"></div>
+
+                <div className="mb-2">
+                  <span className="font-semibold">Open Source Contributor</span> <br/>
+                  <span>GitHub</span> <br/>
+                  <span className="text-zinc-400">2026 | 44 merged pull requests across 39 projects</span>
+                </div>
+                <ul className="list-disc ml-6 space-y-2 mt-2 text-zinc-200">
+                  {openSourceHighlights.map((pr) => (
+                    <li key={pr.href}>
+                      <a href={pr.href} target="_blank" rel="noopener noreferrer" className="underline decoration-zinc-500 hover:decoration-white">
+                        {pr.repo}
+                      </a>
+                      {": "}
+                      {pr.summary}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

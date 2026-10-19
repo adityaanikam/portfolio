@@ -49,7 +49,6 @@ const ProjectDets = () => {
   };
 
   const projectData = getProjectById(id);
-  console.log(projectData);
   const imagesArray = projectData?.screenshots || [projectData?.imageSrc].filter(Boolean);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   return (
@@ -82,6 +81,18 @@ const ProjectDets = () => {
                 {projectData.name}
               </h1>
               <div className="relative w-full aspect-[16/8.5] overflow-hidden rounded-lg shadow-xl">
+                {imagesArray.length === 0 && (
+                  <div className="w-full h-full bg-zinc-900 flex flex-col items-center justify-center gap-3 p-6 text-center">
+                    <p className="text-zinc-400 text-sm">No screenshots yet. This project lives on GitHub.</p>
+                    <div className="flex flex-wrap justify-center gap-2">
+                      {projectData.techs.slice(0, 6).map((tech) => (
+                        <span key={tech} className="px-3 py-1 bg-white/10 rounded-full text-sm text-zinc-200">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 <div
                   className="w-fit h-full bg-red-200 flex transition-all duration-300 ease-in-out"
                   style={{
@@ -114,7 +125,7 @@ const ProjectDets = () => {
                       setCurrentImageIndex(currentImageIndex + 1);
                   }}
                   className={`${
-                    currentImageIndex === imagesArray.length - 1
+                    currentImageIndex >= imagesArray.length - 1
                       ? "hidden"
                       : "block"
                   } absolute top-1/2 right-2 flex justify-center items-center p-[0.4rem] bg-black rounded-full opacity-60 hover:opacity-100 transition-all duration-250 ease-in-out`}
@@ -146,7 +157,7 @@ const ProjectDets = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                visit
+                {projectData.url.includes("github.com") ? "view on GitHub" : "visit"}
               </a>
             </div>
           </motion.div>

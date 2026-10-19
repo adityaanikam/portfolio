@@ -5,7 +5,17 @@ function ProjectCard({ project, category }) {
   return (
     <div className="w-[100%] md:w-[47%] text-zinc-800 p-5 aspect-square rounded-lg bg-neutral-200 flex flex-col justify-between">
       <h3 className="">{project.name}</h3>
-      <img src={project?.imageSrc}></img>
+      {project?.imageSrc ? (
+        <img src={project.imageSrc} alt={project.name}></img>
+      ) : (
+        <div className="w-full aspect-video rounded bg-zinc-900 text-zinc-300 flex flex-wrap content-center justify-center gap-1 p-2 overflow-hidden">
+          {project.techs.slice(0, 4).map((tech) => (
+            <span key={tech} className="px-2 py-0.5 bg-white/10 rounded-full text-[0.65rem]">
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
       <p className="text-sm mt-1">{project.desc}</p>
       <div className="flex items-center justify-between">
         <Link

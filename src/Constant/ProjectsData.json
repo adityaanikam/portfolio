@@ -3,10 +3,30 @@
     "category": "Machine Learning",
     "projects": [
       {
+        "id": 5433,
+        "name": "Property Address Classification",
+        "desc": "5-class text classifier for property addresses, benchmarked across four model families",
+        "techs": ["Python", "XGBoost", "LightGBM", "Scikit-Learn", "DistilBERT", "TF-IDF", "imbalanced-learn", "Pandas"],
+        "url": "https://github.com/adityaanikam/property-address-classification",
+        "features": [
+          "Classifies 11.6K property addresses into 5 categories (Flat, Plot, House, Shop, Commercial Unit)",
+          "Benchmarks Logistic Regression, Random Forest, XGBoost and LightGBM; the tuned XGBoost model reaches 90.8% accuracy and 89.5% macro F1",
+          "5,027 features: TF-IDF unigrams and bigrams plus 27 custom features such as floor, unit and plot detection",
+          "DistilBERT fine-tuned as a transformer baseline",
+          "Unit tests for preprocessing and feature engineering, plus per-class error analysis"
+        ],
+        "challenges": [
+          "Severe class imbalance. SMOTE was tried and rejected because it produced nonsense addresses, so the final model uses scale_pos_weight with stratified splits.",
+          "TF-IDF at 10,000 features overfit, so it was cut to 5,000 and supplemented with custom domain features.",
+          "Choosing a metric: macro F1 instead of accuracy, so the small classes are not hidden by the large ones.",
+          "DistilBERT scored about 93% but took 5 to 8 hours to train on CPU, so it stayed a baseline rather than the shipped model."
+        ]
+      },
+      {
         "id": 5432,
         "name": "Loan Recommendation System",
-        "desc": "ML-powered loan approval and recommendation system",
-        "techs": ["Python", "Scikit-Learn", "Pandas", "Random Forest", "SVR", "Matplotlib", "Seaborn", "Flask"],
+        "desc": "Five ML models that recommend loan eligibility, amount, rate, product and tenure",
+        "techs": ["Python", "Scikit-Learn", "FastAPI", "PostgreSQL", "Docker", "Next.js", "Vercel", "Render"],
         "url": "https://cogni-sigma.vercel.app/",
         "imageSrc": "/projectThumbnails/ml/Loan Recommendation System/loan 1.png",
         "screenshots": [
@@ -17,26 +37,24 @@
           "/projectThumbnails/ml/Loan Recommendation System/loan 5.png"
         ],
         "features": [
-          "Loan approval prediction using ML classification models",
-          "Customer risk profiling based on credit history and financial behavior",
-          "Interactive data visualization (loan approval trends, repayment patterns)",
-          "REST API for model deployment and integration",
-          "Flask-based web interface for loan recommendations"
+          "Five scikit-learn models: eligibility, loan amount, interest rate, product and tenure",
+          "FastAPI backend with PostgreSQL, containerised with Docker",
+          "CIBIL score validation against a local credit database",
+          "EMI comparison between loan options",
+          "Next.js frontend on Vercel, Python API on Render"
         ],
         "challenges": [
-          "Collecting and preprocessing real-world loan datasets with missing/inconsistent values.",
-          "Balancing dataset for biased loan approvals (handling imbalanced classes).",
-          "Feature engineering (credit score, income-to-loan ratio, EMI-to-income ratio).",
-          "Designing a model that optimizes both accuracy and fairness.",
-          "Deploying the ML model with Flask API ensuring low latency.",
-          "Managing CORS and securing API endpoints for external usage."
+          "Predicting five different targets from one applicant profile, each with its own model and encoders.",
+          "Keeping the label encoders and models consistent between training and prediction so inputs are encoded identically.",
+          "Validating the applicant's CIBIL score before any recommendation is returned.",
+          "Running a Next.js frontend and a Python API as two separately deployed repositories."
         ]
       },
       {
         "id": 1234,
         "name": "Los Angeles Traffic Prediction",
-        "desc": "Machine Learning based traffic prediction system",
-        "techs": ["Python", "TensorFlow", "Scikit-Learn", "Pandas", "NumPy", "Matplotlib", "Flask"],
+        "desc": "Traffic congestion analysis and forecasting for Los Angeles",
+        "techs": ["Python", "Scikit-Learn", "Random Forest", "SVR", "Pandas", "Matplotlib"],
         "url": "https://github.com/adityaanikam/LosAngeles-Traffic-Prediction",
         "imageSrc": "/projectThumbnails/ml/losAngles/losAngeles 1.png",
         "screenshots": [
@@ -45,18 +63,85 @@
           "/projectThumbnails/ml/losAngles/losAngeles 3.png"
         ],
         "features": [
-          "Real-time traffic data preprocessing",
-          "Traffic congestion level prediction using ML/DL", 
-          "Interactive data visualization",
-          "Location-based traffic updates",
-          "Flask-based deployment with REST API"
+          "Forecasts congestion with Random Forest and Support Vector Regression",
+          "Uses historical traffic, weather conditions and special events as inputs",
+          "Clustering, correlation analysis and anomaly detection to find high-incident intersections",
+          "Interactive HTML traffic and heat maps"
         ],
         "challenges": [
-          "Acquiring and cleaning real-time traffic datasets relevant to the Los Angeles region.",
-          "Designing a model that balances accuracy and performance with time-series data.",
-          "Implementing proper feature engineering to improve prediction quality.",
-          "Deploying the trained model via Flask while keeping latency minimal.",
-          "Managing CORS and API throttling during client-server interaction."
+          "Cleaning a large traffic dataset with missing and inconsistent values before modelling.",
+          "Combining traffic history with weather and special-event data.",
+          "Interactive maps get heavy on large data, so an optimised map was produced alongside the full one."
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Full Stack",
+    "projects": [
+      {
+        "id": 7001,
+        "name": "Warehouse Dashboard",
+        "desc": "Inventory, shipment and supplier dashboard with full create, edit and delete",
+        "techs": ["React", "TypeScript", "MUI", "Chart.js", "FastAPI", "SQLAlchemy", "PostgreSQL", "Vercel", "Render"],
+        "url": "https://warehouse-dashboard-chi.vercel.app/",
+        "imageSrc": "/projectThumbnails/fullstack/Warehouse Dashboard/warehouse 1.png",
+        "screenshots": [
+          "/projectThumbnails/fullstack/Warehouse Dashboard/warehouse 1.png",
+          "/projectThumbnails/fullstack/Warehouse Dashboard/warehouse 2.png",
+          "/projectThumbnails/fullstack/Warehouse Dashboard/warehouse 3.png",
+          "/projectThumbnails/fullstack/Warehouse Dashboard/warehouse 4.png"
+        ],
+        "features": [
+          "Overview with live KPIs, stock by category, shipment status and a low-stock list",
+          "Inventory, shipments and suppliers pages with search, filter, sort, export, and create, edit and delete",
+          "Analytics computed in SQL with GROUP BY instead of in Python",
+          "Eager loading removes the N+1 query problem, checked by query-count tests",
+          "Day shift and night shift themes, usable on phones"
+        ],
+        "challenges": [
+          "Listing items with their suppliers issued one query per row. Joined eager loading fixed it, and a test counts queries to keep it fixed.",
+          "Dashboard totals were first summed in Python. Moving them to SQL aggregates keeps the work in the database.",
+          "Deleting a supplier that still has items has to be refused with a clear 409 rather than a crash.",
+          "Redesigned the interface away from the default Material look into a packing-slip style with shipping-label cards and stamped status tags."
+        ]
+      },
+      {
+        "id": 7002,
+        "name": "GeriRisk",
+        "desc": "Wearable-data health risk prediction for elderly care",
+        "techs": ["Next.js", "React", "TypeScript", "Tailwind", "FastAPI", "Scikit-Learn", "Supabase", "PostgreSQL"],
+        "url": "https://gerrisk.vercel.app",
+        "imageSrc": "/projectThumbnails/fullstack/GeriRisk/geririsk 1.png",
+        "features": [
+          "Three scikit-learn models score cardiac stress, fall likelihood and respiratory irregularity",
+          "Risk shown as High, Moderate or Low in an alert-driven caregiver dashboard",
+          "CSV upload pipeline for wearable data with validation and feature aggregation",
+          "Standalone FastAPI inference service, deployed independently from the web app"
+        ],
+        "challenges": [
+          "Turning raw wearable readings (heart rate, SpO2, steps, sleep, temperature) into features the models can score.",
+          "Validating uploaded CSV files before they reach the models.",
+          "Keeping the Next.js app and the Python inference service as two separate deployments."
+        ]
+      },
+      {
+        "id": 7003,
+        "name": "E-Commerce Platform",
+        "desc": "Full stack store with catalog, cart, authentication, orders and admin dashboard",
+        "techs": ["React", "TypeScript", "Spring Boot", "MongoDB", "Docker", "Vercel", "Render"],
+        "url": "https://ecommerce-site-five-phi.vercel.app",
+        "imageSrc": "/projectThumbnails/fullstack/E-Commerce/ecommerce 1.png",
+        "features": [
+          "Product catalog with category browsing and filtering",
+          "Shopping cart, user registration and login",
+          "Order management and an admin dashboard",
+          "React frontend on Vercel, Dockerised Spring Boot API on Render, MongoDB Atlas"
+        ],
+        "challenges": [
+          "Configuring CORS between a Vercel frontend and a Render backend.",
+          "Moving from a local MongoDB to Atlas and seeding product data with a script.",
+          "Running the same Spring Boot service locally and in a Docker container on Render."
         ]
       }
     ]
@@ -65,10 +150,29 @@
     "category": "Backend",
     "projects": [
       {
+        "id": 7004,
+        "name": "Webhook Ingest Service",
+        "desc": "Go webhook service where I found and fixed eight reported defects",
+        "techs": ["Go", "PostgreSQL", "Redis", "Docker", "SQL migrations"],
+        "url": "https://github.com/adityaanikam/webhook-ingest",
+        "features": [
+          "Receives call-completion webhooks and keeps per-account call stats",
+          "Idempotent writes: a unique index with INSERT ... ON CONFLICT DO NOTHING in one transaction",
+          "Layered structure: http api, ingest, store and stats packages",
+          "A failing test for each fix, run with the Go race detector"
+        ],
+        "challenges": [
+          "50 simultaneous deliveries of one event stored 36 copies. A unique index and one transaction fixed it.",
+          "An unlocked in-memory cache lost updates under load, found with the race detector.",
+          "A background update ran on an already-cancelled request context and failed silently.",
+          "In-flight recording work was lost on shutdown because goroutines were not tracked."
+        ]
+      },
+      {
         "id": 5678,
-        "name": "Real-Time Chat Application with WebSockets",
-        "desc": "WebSocket-based real-time chat application",
-        "techs": ["Java", "Spring", "WebSockets", "Socket.io", "HTML/CSS", "Docker", "SQLite"],
+        "name": "Real-Time Chat Application",
+        "desc": "WebSocket chat application built with Spring Boot",
+        "techs": ["Java", "Spring Boot", "WebSockets", "SQLite", "Docker", "HTML/CSS/JS"],
         "url": "https://real-time-chat-application-with.onrender.com/",
         "imageSrc": "/projectThumbnails/backend/chat application 1.png",
         "screenshots": [
@@ -76,18 +180,39 @@
           "/projectThumbnails/backend/chat application 2.png"
         ],
         "features": [
-          "Real-time bi-directional communication",
-          "Room-based chat support",
-          "User join/leave notifications",
-          "Message history",
-          "Typing indicators"
+          "Real-time messaging over a Spring Boot WebSocket handler",
+          "Messages saved to SQLite and replayed as history",
+          "Automatic reconnection when the connection drops",
+          "Mobile-responsive interface, Docker support"
         ],
         "challenges": [
-          "Implementing WebSocket communication from scratch using Socket.io.",
-          "Ensuring messages are synced in real time across multiple users.",
-          "Managing different chat rooms and message persistence.",
-          "Handling user disconnection, reconnection, and presence status.",
-          "Deploying on a secure server and optimizing for concurrent users."
+          "Broadcasting each message to every connected client from one WebSocket handler.",
+          "Persisting messages through a Spring repository so history survives a restart.",
+          "Reconnecting cleanly in the browser after a dropped connection.",
+          "Packaging the Spring Boot app in Docker for deployment on Render."
+        ]
+      }
+    ]
+  },
+  {
+    "category": "AI Agents",
+    "projects": [
+      {
+        "id": 7005,
+        "name": "FlowBit",
+        "desc": "Multi-agent pipeline that classifies emails, JSON and PDFs and routes follow-up actions",
+        "techs": ["Python", "FastAPI", "Gemini", "SQLAlchemy", "Pydantic", "Docker", "nginx"],
+        "url": "https://github.com/adityaanikam/AI_agent_project",
+        "features": [
+          "A Gemini 1.5 Flash classifier decides the input format and business intent",
+          "Specialist agents for email, JSON and PDF inputs",
+          "Action router for CRM, risk alert, compliance and notification follow-ups, with 3 retries and exponential backoff",
+          "Every request recorded with status and history endpoints"
+        ],
+        "challenges": [
+          "LLM output is not always valid JSON, so the classifier strips code fences, extracts the first JSON object and falls back to a heuristic at 0.5 confidence.",
+          "Validating incoming JSON against fixed schemas before an agent handles it.",
+          "Retrying failed downstream actions without losing the request, with a mock fallback when a target is unavailable."
         ]
       }
     ]

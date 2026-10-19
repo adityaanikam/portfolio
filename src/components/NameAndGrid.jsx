@@ -54,7 +54,7 @@ function NameAndGrid({ openState }) {
               key={category}
               className="backdrop-blur-lg bg-white/5 p-6 rounded-xl"
             >
-              <h3 className="text-2xl text-white font-bold mb-4 capitalize">
+              <h3 className="text-2xl text-white font-bold mb-4">
                 {category}
               </h3>
               <ul className="space-y-2">
